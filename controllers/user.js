@@ -8,7 +8,11 @@ const sendEmail = require("../utils/sendEmail");
 
 const tokenForUser = (user) => {
   const timestamp = new Date().getTime();
-  return jwt.encode({ sub: user._id, iat: timestamp }, config.secret);
+  const expirationTime = timestamp + 60 * 60 * 1000;
+  return jwt.encode(
+    { sub: user._id, iat: timestamp, exp: expirationTime },
+    config.secret
+  );
 };
 
 module.exports.signup = async (req, res) => {

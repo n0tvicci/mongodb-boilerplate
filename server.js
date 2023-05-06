@@ -3,7 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const cors = require("cors");
-// const path = require("path");
 
 const router = require("./router");
 const app = express();
@@ -20,7 +19,6 @@ app.use(bodyparser.json());
 // );
 app.use(cors());
 router(app);
-// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 5000;
 
